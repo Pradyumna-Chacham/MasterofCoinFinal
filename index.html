@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.box {
+  background-color: white;
+  width: 300px;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+  float: center;
+}
+.footer {
+  position: static;
+  display: inline-block;
+  margin-top: 5%;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #dddddd;
+  color: black;
+  text-align: center;
+}
+.chart-container {
+    border: 1px solid black;
+    max-width: 600px;
+    padding: 10px;
+    margin: 1%;
+  }
+legend{
+ padding: 10px;
+ color: white;
+ font-size: 20px;
+ margin: auto;
+ max-width:500px;
+ width:100%;
+ background-color: #00308F;
+}
+fieldset
+{
+  float: center;
+  background-color:#dddddd;
+  max-width:500px;
+  padding:5px;
+  margin: auto;	
+}
+input[type=text], select {
+  width: 50%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  max-width: 500px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 2px;
+  background-color: white;
+  padding: 1px;
+}
+</style>
+
+<!-- include the correct version of Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.piecelabel.js/0.15.0/Chart.PieceLabel.min.js"></script>
+<script>
+var barColors = [    "#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00","#39CCCC", "#001f3f" , "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA","#deb887","#556b2f","#9932cc","#bdb76b","#ff8c00","#8fbc8f","#f8f8ff","cd5c5c","#008080","#800080","#40e0d0","#ffff00","#d8bfd8"  ];
+function OutputDisplay() {
+      // get the form values and convert them to numbers
+	var vehicle_loan1 = parseFloat(document.getElementById("vehicle loan").value);
+      var fuel1 = parseFloat(document.getElementById("Fuel").value);
+      var vehicle_insurance1 = parseFloat(document.getElementById("Car Insurance").value);
+      var car_maintenance1 = parseFloat(document.getElementById("Car Maintenance").value);
+      var other_transport1 = parseFloat(document.getElementById("Other" ).value);
+      var food_expenses = parseFloat(document.getElementById("food" ).value);
+      var meals_expenses = parseFloat(document.getElementById("meals" ).value);
+      var r=parseFloat(document.getElementById("rental").value);
+      var m=parseFloat(document.getElementById("house1").value);
+      var i=parseFloat(document.getElementById("houseinsurance").value);
+      var u=parseFloat(document.getElementById("utilities").value);
+      var meds = parseFloat(document.getElementById("medicines" ).value);
+      var doc_fee = parseFloat(document.getElementById("doctorfee" ).value);
+      var mf=parseFloat(document.getElementById("MutualFunds").value);
+      var fd=parseFloat(document.getElementById("FixedDeposit").value);
+      var pension=parseFloat(document.getElementById("Pension").value);
+      var investments=parseFloat(document.getElementById("Investments").value);
+      var cd=parseFloat(document.getElementById("creditcard").value);
+      var ed=parseFloat(document.getElementById("educationloan").value);
+      var oth_loans=parseFloat(document.getElementById("otherloans").value);
+      var clothing=parseFloat(document.getElementById("clothing").value);
+      var household_exp=parseFloat(document.getElementById("household").value);
+      var hobby=parseFloat(document.getElementById("hobbies").value);
+      var travel=parseFloat(document.getElementById("travel").value);
+      var recreation=parseFloat(document.getElementById("recreation").value);
+      var other_exp=parseFloat(document.getElementById("otherexpenses").value);
+      var Category9=['Housing Expenses','Transportation Expenses', 'Food Expenses', 'Healthcare Expenses', 'Savings & Investments','Loans& Other Payments','Living Expenses','Miscellaneous Expenses'];
+	var housing_exp=r+m+i+u;
+	var transport_exp=vehicle_loan1+fuel1+vehicle_insurance1+car_maintenance1+other_transport1;
+	var food_exp=food_expenses+meals_expenses;
+	var healthcare_exp=meds+doc_fee;
+	var investment_exp=mf+fd+pension+investments;
+	var loan_exp=cd+ed+oth_loans;
+	var living_exp=clothing+household_exp;
+	var misc_exp=hobby+travel+recreation+other_exp;
+	var total_exp=housing_exp+transport_exp+food_exp+healthcare_exp+investment_exp+loan_exp+living_exp+misc_exp;
+	var Amount9=  [housing_exp,transport_exp,food_exp,healthcare_exp,investment_exp,loan_exp,living_exp,misc_exp];
+	
+
+      // create the data object for the pie chart
+      var data = {
+           labels: Category9,
+              datasets:[{
+                data: Amount9,
+              backgroundColor: barColors
+            }]
+          };
+
+      // create the pie chart
+      var ctx = document.getElementById("Final").getContext("2d");
+      var chart = new Chart(ctx, {
+        type: "pie",
+        data: data,
+      });
+
+      // customize the chart appearance
+      chart.options = {
+        title: {
+          display: true,
+          text: "transport Expenses",
+        },
+        legend: {
+          display: true,
+          position: "center",
+        },
+        pieceLabel: {
+          render: "percentage",
+          fontColor: ["black"],
+          precision: 2,
+        },
+      };
+    }
+
+	
+  </script>
+</head>
+<body>
+<body>
+<div id="headerout">
+	<div id="header">
+		<center><div id="logo"><a href="https://imgbb.com/"><img src="https://i.ibb.co/VY2C2ds/20221212-140922-0000-1.jpg" alt="20221212-140922-0000-1" border="1"></a><center> </div>
+			</div>
+</div>
+</div>
+</div>
+
+<center><font face="Verdana"><h1 style="font-size:80px;"> Budget Calculator</h1></font><center>
+<p>ENTER ALL VALUES ON MONTHLY BASIS.</p>
+
+    <form id="form">
+
+<legend>Budget Overview</legend>
+  <fieldset>
+    <label for="Salary">Salary:</label><br>
+    <input type="text" id="salary"><br>
+    <label for="IT">Income Tax Rate:</label><br>
+     <input type="text" id="taxrate"><br>
+    </fieldset>        
+
+
+<legend>Housing</legend>
+<fieldset>
+          <label for="rental">Rent:</label><br>            
+          <input type="text" id="rental"><br>            
+          <label for="house1">House Maintenance:</label><br>            
+          <input type="text" id="house1"><br>                      
+          <label for="houseinsurance">House Insurance:</label><br>            
+          <input type="text" id="houseinsurance"><br>            
+          <label for="utilities">Utilities:</label><br>            
+          <input type="text" id="utilities"><br> 
+</fieldset> 
+
+          <legend>Transportation</legend>
+	    <fieldset>
+          <label for="vehicle loan">Vehicle loan:</label><br>         
+          <input type="text" id="vehicle loan"><br>         
+          <label for="Fuel">Fuel:</label><br>            
+          <input type="text" id="Fuel"><br>            
+          <label for="Car Insurance">Car Insurance:</label><br>            
+          <input type="text" id="Car Insurance"><br>            
+          <label for="Car Maintenance">Car Maintenance:</label><br>            
+          <input type="text" id="Car Maintenance"><br>            
+          <label for="Other">Other:</label><br>            
+          <input type="text" id="Other"><br>
+	    </fieldset>  
+         
+          <legend>Food</legend>
+<fieldset>
+          <label for="food">Food:</label><br>            
+          <input type="text" id="food"><br>            
+          <label for="meals">Meals:</label><br>            
+          <input type="text" id="meals"><br>
+</fieldset>         
+          
+	<legend>Healthcare</legend>
+<fieldset>
+          <label for="medicines">Medicines:</label><br>            
+          <input type="text" id="medicines"><br>            
+          <label for="doctorfee">Doctor Consultation/Fee:</label><br>            
+          <input type="text" id="doctorfee"><br>   
+</fieldset>
+         
+          <legend>Savings</legend>
+<fieldset>
+	    <p>Recommended to invest a minimum of 15% of monthly Salary</p>
+          <label for="MutualFunds">Mutual Funds:</label><br>            
+          <input type="text" id="MutualFunds"><br>            
+          <label for="FixedDeposit">Fixed Deposits:</label><br>   
+          <input type="text" id="FixedDeposit"><br>            
+          <label for="Pension">Pension:</label><br>            
+          <input type="text" id="Pension"><br>            
+          <label for="Investments">Investments:</label><br>            
+          <input type="text" id="Investments"><br>  
+</fieldset> 
+         
+          <legend>Loans and Other Payments</legend>
+<fieldset>
+          <label for="creditcard">Credit Card:</label><br>            
+          <input type="text" id="creditcard"><br>            
+          <label for="educationloan">Education Loan:</label><br>            
+          <input type="text" id="educationloan"><br>      
+          <label for="otherloans">Other Loans:</label><br>            
+          <input type="text" id="otherloans"><br>   
+</fieldset>
+         
+          <legend>Living</legend>
+<fieldset>
+          <label for="clothing">Clothing:</label><br>            
+          <input type="text" id="clothing"><br>            
+          <label for="household">Household Expenses:</label><br>            
+          <input type="text" id="household"><br>   
+</fieldset>
+         
+          <legend>Miscellaneous</legend>
+<fieldset>
+          <label for="hobbies">Hobbies:</label><br>            
+          <input type="text" id="hobbies"><br>            
+          <label for="travel">Travel:</label><br>            
+          <input type="text" id="travel"><br>            
+          <label for="recreation">Recreation:</label><br>            
+          <input type="text" id="recreation"><br>            
+          <label for="otherexpenses">Other Expenses:</label><br>            
+          <input type="text" id="otherexpenses"><br>            
+          <input type="submit" value="Submit">
+            </fieldset>
+      </form>
+
+    
+      <!-- container for the pie chart -->
+      <div class="chart-container">
+        <canvas id="Final"></canvas>
+      </div>
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          // prevent the default form submission behavior
+          event.preventDefault();
+    
+          // process the form data and update the chart
+          OutputDisplay();
+        });
+      </script>
+	<p><div class="box" id="my-id"><a href="Housing%20Expenses.html" title="Housing" target="_blank">Housing Expenses</a><br>
+						 <a href="Transport%20Expenses.html" title="Transport" target="_blank">Transport Expenses</a><br>
+						<a href="Savings.html" title="Savings" target="_blank">Savings & Investments</a><br>
+						<a href="Loans%20and%20Other%20Payments.html" title="Loans" target="_blank">Loans and Other Payments</a><br>
+						<a href="Food Expenses.html" title="Food" target="_blank">Food Expenses</a><br>
+					<a href="Living Expenses.html" title="Living" target="_blank">Living Expenses</a><br>
+					<a href="Healthcare Expenses.html" title="Healthcare" target="_blank">Healthcare Expenses</a><br>
+					<a href="Miscellaneous%20Expenses.html" title="Miscellaneous" target="_blank">Miscellaneous</a><br></div></p>
+
+
+
+<div class="footer">
+ 	<a href="https://main.d38jr8i0bzv3qw.amplifyapp.com/">About Us</a>
+	<p><button onClick="window.print()">Print</button></p>
+</div>
+    
+     
+</body>
+</html>
