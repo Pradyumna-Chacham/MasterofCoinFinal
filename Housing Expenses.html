@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.chart-container {
+    border: 1px solid black;
+    max-width: 600px;
+    padding: 10px;
+    margin: 1%;
+  }
+legend{
+ padding: 10px;
+ color: white;
+ font-size: 20px;
+ margin: auto;
+ max-width:500px;
+ width:100%;
+ background-color: #00308F;
+}
+fieldset
+{
+  background-color:#dddddd;
+  max-width:500px;
+  padding:5px;	
+}
+input[type=text], select {
+  width: 50%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  max-width: 500px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 2px;
+  background-color: white;
+  padding: 1px;
+}
+</style>
+
+<!-- include the correct version of Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.piecelabel.js/0.15.0/Chart.PieceLabel.min.js"></script>
+<script>
+var barColors = [    "#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA","#deb887","#556b2f","#9932cc","#bdb76b","#ff8c00","#8fbc8f","#f8f8ff","cd5c5c","#008080","#800080","#40e0d0","#ffff00","#d8bfd8"  ];
+function OutputDisplay() {
+      var r=parseFloat(document.getElementById("rental").value);
+      var m=parseFloat(document.getElementById("house1").value);
+      var i=parseFloat(document.getElementById("houseinsurance").value);
+      var u=parseFloat(document.getElementById("utilities").value);
+      var housing_exp=r+m+i+u;
+	var Category1=['Rent','Maintenance','Insurance','Utilities'];	
+	var Amount1=  [r,m,i,u];
+	
+
+      // create the data object for the pie chart
+      var data = {
+           labels: Category1,
+              datasets:[{
+                data: Amount1,
+              backgroundColor: barColors
+            }]
+          };
+
+      // create the pie chart
+      var ctx = document.getElementById("HousingChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        type: "pie",
+        data: data,
+      });
+
+      // customize the chart appearance
+      chart.options = {
+        title: {
+          display: true,
+          text: "Housing Expenses",
+        },
+        legend: {
+          display: true,
+          position: "center",
+        },
+        pieceLabel: {
+          render: "percentage",
+          fontColor: ["black"],
+          precision: 2,
+        },
+      };
+    }
+  </script>
+</head>
+<body>
+<body>
+<div id="headerout">
+	<div id="header">
+		<center><div id="logo"><a href="https://imgbb.com/"><img src="https://i.ibb.co/VY2C2ds/20221212-140922-0000-1.jpg" alt="20221212-140922-0000-1" border="1"></a><center> </div>
+			</div>
+</div>
+</div>
+</div>
+
+<center><font face="Verdana"><h1 style="font-size:80px;"> Budget Calculator</h1></font><center>
+<p>ENTER ALL VALUES ON MONTHLY BASIS.</p>
+
+    <form id="form">
+        
+
+
+<legend>Housing</legend>
+<fieldset>
+          <label for="rental">Rent:</label><br>            
+          <input type="text" id="rental"><br>            
+          <label for="house1">House Maintenance:</label><br>            
+          <input type="text" id="house1"><br>                      
+          <label for="houseinsurance">House Insurance:</label><br>            
+          <input type="text" id="houseinsurance"><br>            
+          <label for="utilities">Utilities:</label><br>            
+          <input type="text" id="utilities"><br> 
+          <input type="submit" value="Submit">
+            </fieldset>
+      </form>
+      
+      <!-- container for the pie chart -->
+      <div class="chart-container">
+        <canvas id="HousingChart"></canvas>
+      </div>
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          // prevent the default form submission behavior
+          event.preventDefault();
+    
+          // process the form data and update the chart
+          OutputDisplay();
+        });
+      </script>
+      
+     
+</body>
