@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!-- include the correct version of Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.piecelabel.js/0.15.0/Chart.PieceLabel.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+<body>
+<div id="headerout">
+	<div id="header">
+		<center><div id="logo"><a href="https://imgbb.com/"><img src="https://i.ibb.co/VY2C2ds/20221212-140922-0000-1.jpg" alt="20221212-140922-0000-1" border="1"></a><center> </div>
+			</div>
+</div>
+</div>
+</div>
+
+<center><font face="Verdana"><h1 style="font-size:80px;"> Budget Calculator</h1></font><center>
+<p>ENTER ALL VALUES ON MONTHLY BASIS.</p>
+
+    <form id="form">
+
+<legend>Budget Overview</legend>
+  <fieldset>
+    <label for="Salary">Salary:</label><br>
+    <input type="text" id="salary"><br>
+    <label for="IT">Income Tax Rate:</label><br>
+     <input type="text" id="taxrate"><br>
+    </fieldset>        
+
+
+<legend>Housing</legend>
+<fieldset>
+          <label for="rental">Rent:</label><br>            
+          <input type="text" id="rental"><br>            
+          <label for="house1">House Maintenance:</label><br>            
+          <input type="text" id="house1"><br>                      
+          <label for="houseinsurance">House Insurance:</label><br>            
+          <input type="text" id="houseinsurance"><br>            
+          <label for="utilities">Utilities:</label><br>            
+          <input type="text" id="utilities"><br> 
+</fieldset> 
+
+          <legend>Transportation</legend>
+	    <fieldset>
+          <label for="vehicle loan">Vehicle loan:</label><br>         
+          <input type="text" id="vehicle loan"><br>         
+          <label for="Fuel">Fuel:</label><br>            
+          <input type="text" id="Fuel"><br>            
+          <label for="Car Insurance">Car Insurance:</label><br>            
+          <input type="text" id="Car Insurance"><br>            
+          <label for="Car Maintenance">Car Maintenance:</label><br>            
+          <input type="text" id="Car Maintenance"><br>            
+          <label for="Other">Other:</label><br>            
+          <input type="text" id="Other"><br>
+	    </fieldset>  
+         
+          <legend>Food</legend>
+<fieldset>
+          <label for="food">Food:</label><br>            
+          <input type="text" id="food"><br>            
+          <label for="meals">Meals:</label><br>            
+          <input type="text" id="meals"><br>
+</fieldset>         
+          
+	<legend>Healthcare</legend>
+<fieldset>
+          <label for="medicines">Medicines:</label><br>            
+          <input type="text" id="medicines"><br>            
+          <label for="doctorfee">Doctor Consultation/Fee:</label><br>            
+          <input type="text" id="doctorfee"><br>   
+</fieldset>
+         
+          <legend>Savings</legend>
+<fieldset>
+	    <p>Recommended to invest a minimum of 15% of monthly Salary</p>
+          <label for="MutualFunds">Mutual Funds:</label><br>            
+          <input type="text" id="MutualFunds"><br>            
+          <label for="FixedDeposit">Fixed Deposits:</label><br>   
+          <input type="text" id="FixedDeposit"><br>            
+          <label for="Pension">Pension:</label><br>            
+          <input type="text" id="Pension"><br>            
+          <label for="Investments">Investments:</label><br>            
+          <input type="text" id="Investments"><br>  
+</fieldset> 
+         
+          <legend>Loans and Other Payments</legend>
+<fieldset>
+          <label for="creditcard">Credit Card:</label><br>            
+          <input type="text" id="creditcard"><br>            
+          <label for="educationloan">Education Loan:</label><br>            
+          <input type="text" id="educationloan"><br>      
+          <label for="otherloans">Other Loans:</label><br>            
+          <input type="text" id="otherloans"><br>   
+</fieldset>
+         
+          <legend>Living</legend>
+<fieldset>
+          <label for="clothing">Clothing:</label><br>            
+          <input type="text" id="clothing"><br>            
+          <label for="household">Household Expenses:</label><br>            
+          <input type="text" id="household"><br>   
+</fieldset>
+         
+          <legend>Miscellaneous</legend>
+<fieldset>
+          <label for="hobbies">Hobbies:</label><br>            
+          <input type="text" id="hobbies"><br>            
+          <label for="travel">Travel:</label><br>            
+          <input type="text" id="travel"><br>            
+          <label for="recreation">Recreation:</label><br>            
+          <input type="text" id="recreation"><br>            
+          <label for="otherexpenses">Other Expenses:</label><br>            
+          <input type="text" id="otherexpenses"><br>            
+          <input type="submit" value="Submit">
+            </fieldset>
+      </form>
+
+    
+      <!-- container for the pie chart -->
+      <div class="chart-container">
+        <canvas id="Final"></canvas>
+      </div>
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          // prevent the default form submission behavior
+          event.preventDefault();
+    
+          // process the form data and update the chart
+          OutputDisplay();
+        });
+      </script>
+	<p><div class="box" id="my-id"><a href="Housing%20Expenses.html" title="Housing" target="_blank">Housing Expenses</a><br>
+						 <a href="Transport%20Expenses.html" title="Transport" target="_blank">Transport Expenses</a><br>
+						<a href="Savings.html" title="Savings" target="_blank">Savings & Investments</a><br>
+						<a href="Loans%20and%20Other%20Payments.html" title="Loans" target="_blank">Loans and Other Payments</a><br>
+						<a href="Food%20Expenses.html" title="Food" target="_blank">Food Expenses</a><br>
+					<a href="Living%20Expenses.html" title="Living" target="_blank">Living Expenses</a><br>
+					<a href="Healthcare%20Expenses.html" title="Healthcare" target="_blank">Healthcare Expenses</a><br>
+					<a href="Miscellaneous%20Expenses.html" title="Miscellaneous" target="_blank">Miscellaneous</a><br></div></p>
+
+
+
+<div class="footer">
+ 	<a href="aboutus1.html">About Us</a>
+	<p><button onClick="window.print()">Print</button></p>
+</div>
+    
+     
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- include the correct version of Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.piecelabel.js/0.15.0/Chart.PieceLabel.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+<body>
+<div id="headerout">
+	<div id="header">
+		<center><div id="logo"><a href="https://imgbb.com/"><img src="https://i.ibb.co/VY2C2ds/20221212-140922-0000-1.jpg" alt="20221212-140922-0000-1" border="1"></a><center> </div>
+			</div>
+</div>
+</div>
+</div>
+
+<center><font face="Verdana"><h1 style="font-size:80px;"> Budget Calculator</h1></font><center>
+<p>ENTER ALL VALUES ON MONTHLY BASIS.</p>
+
+    <form id="form">
+        
+
+
+<legend>Loans and Other Payments</legend>
+<fieldset>
+          <label for="creditcard">Credit Card:</label><br>            
+          <input type="text" id="creditcard"><br>            
+          <label for="educationloan">Education Loan:</label><br>            
+          <input type="text" id="educationloan"><br>      
+          <label for="otherloans">Other Loans:</label><br>            
+          <input type="text" id="otherloans"><br>   
+	    <input type="submit" value="Submit">
+	    </fieldset>  
+      </form>
+      
+      <!-- container for the pie chart -->
+      <div class="chart-container">
+        <canvas id="LoanChart"></canvas>
+      </div>
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          // prevent the default form submission behavior
+          event.preventDefault();
+    
+          // process the form data and update the chart
+          LoanDisplay();
+        });
+      </script>
+	<div class="footer">
+ 	<a href="aboutus1.html">About Us</a>
+	<p><button onClick="window.print()">Print</button></p>
+</div>
+      
+     
+</body>
+</html>

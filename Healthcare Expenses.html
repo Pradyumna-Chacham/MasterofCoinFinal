@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+
+<!-- include the correct version of Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.piecelabel.js/0.15.0/Chart.PieceLabel.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+<body>
+<div id="headerout">
+	<div id="header">
+		<center><div id="logo"><a href="https://imgbb.com/"><img src="https://i.ibb.co/VY2C2ds/20221212-140922-0000-1.jpg" alt="20221212-140922-0000-1" border="1"></a><center> </div>
+			</div>
+</div>
+</div>
+</div>
+
+<center><font face="Verdana"><h1 style="font-size:80px;"> Budget Calculator</h1></font><center>
+<p>ENTER ALL VALUES ON MONTHLY BASIS.</p>
+
+    <form id="form">
+        
+
+
+<legend>Healthcare</legend>
+<fieldset>
+          <label for="medicines">Medicines:</label><br>            
+          <input type="text" id="medicines"><br>            
+          <label for="doctorfee">Doctor Consultation/Fee:</label><br>            
+          <input type="text" id="doctorfee"><br>   
+	    <input type="submit" value="Submit">
+	    </fieldset>  
+      </form>
+      
+      <!-- container for the pie chart -->
+      <div class="chart-container">
+        <canvas id="HealthChart"></canvas>
+      </div>
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          // prevent the default form submission behavior
+          event.preventDefault();
+    
+          // process the form data and update the chart
+          HealthDisplay();
+        });
+      </script>
+	<div class="footer">
+ 	<a href="aboutus1.html">About Us</a>
+	<p><button onClick="window.print()">Print</button></p>
+</div>
+      
+     
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!-- include the correct version of Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.piecelabel.js/0.15.0/Chart.PieceLabel.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+<body>
+<div id="headerout">
+	<div id="header">
+		<center><div id="logo"><a href="https://imgbb.com/"><img src="https://i.ibb.co/VY2C2ds/20221212-140922-0000-1.jpg" alt="20221212-140922-0000-1" border="1"></a><center> </div>
+			</div>
+</div>
+</div>
+</div>
+
+<center><font face="Verdana"><h1 style="font-size:80px;"> Budget Calculator</h1></font><center>
+<p>ENTER ALL VALUES ON MONTHLY BASIS.</p>
+
+    <form id="form">
+        
+
+
+<legend>Housing</legend>
+<fieldset>
+          <label for="rental">Rent:</label><br>            
+          <input type="text" id="rental"><br>            
+          <label for="house1">House Maintenance:</label><br>            
+          <input type="text" id="house1"><br>                      
+          <label for="houseinsurance">House Insurance:</label><br>            
+          <input type="text" id="houseinsurance"><br>            
+          <label for="utilities">Utilities:</label><br>            
+          <input type="text" id="utilities"><br> 
+          <input type="submit" value="Submit">
+            </fieldset>
+      </form>
+      
+      <!-- container for the pie chart -->
+      <div class="chart-container">
+        <canvas id="HousingChart"></canvas>
+      </div>
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          // prevent the default form submission behavior
+          event.preventDefault();
+    
+          // process the form data and update the chart
+          HouseDisplay();
+        });
+      </script>
+	<div class="footer">
+ 	<a href="aboutus1.html">About Us</a>
+	<p><button onClick="window.print()">Print</button></p>
+</div>
+      
+     
+</body>
